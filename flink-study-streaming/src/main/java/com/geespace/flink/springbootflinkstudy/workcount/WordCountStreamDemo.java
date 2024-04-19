@@ -5,18 +5,18 @@ import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.api.java.tuple.Tuple2;
-import org.apache.flink.api.java.typeutils.TupleTypeInfo;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.functions.sink.PrintSinkFunction;
 import org.apache.flink.util.Collector;
+
 
 @Slf4j
 public class WordCountStreamDemo {
 
     public static void main(String[] args) throws Exception {
         // 创建流执行环境
-        final StreamExecutionEnvironment env
-                = StreamExecutionEnvironment.createRemoteEnvironment("10.139.106.33", 8081, "C:\\Users\\Zhangaj\\IdeaProjects\\springboot-flink-study\\target\\springboot-flink-study-0.0.1-SNAPSHOT.jar");
+        final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
         // 输入数据源，这里使用一个固定的字符串数组作为输入流
         String[] lines = {"hello world", "hello flink", "world world"};
@@ -48,8 +48,8 @@ public class WordCountStreamDemo {
                 // 计算单词出现的次数
                 .sum(1)
                 .returns(Types.TUPLE(Types.STRING, Types.INT));
-        // 输出结果
-        wordCounts.print();
+        //Sink输出结果
+        wordCounts.addSink(new PrintSinkFunction<Tuple2<String, Integer>>());
 
         // 执行任务
         env.execute("WordCount Stream Demo");

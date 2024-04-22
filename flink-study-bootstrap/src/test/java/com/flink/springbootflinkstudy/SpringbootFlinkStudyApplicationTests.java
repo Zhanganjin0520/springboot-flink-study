@@ -1,4 +1,4 @@
-package com.geespace.flink.springbootflinkstudy;
+package com.flink.springbootflinkstudy;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

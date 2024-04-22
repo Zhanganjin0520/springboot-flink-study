@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.geespace.flink</groupId>
+        <groupId>com.aj.flink</groupId>
         <artifactId>springboot-flink-study</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -27,6 +27,11 @@
             <artifactId>flink-clients</artifactId>
             <version>${flink.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-files</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
     </dependencies>
 
 
@@ -49,18 +54,16 @@
 
                             <archive>
                                 <manifestEntries>
-                                    <program-class>com.geespace.flink.springbootflinkstudy.workcount.WordCountStreamDemo
+                                    <program-class>com.flink.springbootflinkstudy.workcount.WordCountStreamDemo
                                     </program-class>
                                 </manifestEntries>
                             </archive>
 
                             <includes>
-                                <include>com/geespace/flink/springbootflinkstudy/workcount/WordCountStreamDemo.class</include>
-                                <include>com/geespace/flink/springbootflinkstudy/workcount/WordCountStreamDemo*.class</include>
-<!--                                <include>org/apache/flink/streaming/examples/wordcount/util/WordCountData.class</include>-->
-<!--                                <include>org/apache/flink/streaming/examples/wordcount/util/CLI.class</include>-->
-<!--                                <include>META-INF/LICENSE</include>-->
-<!--                                <include>META-INF/NOTICE</include>-->
+                                <include>com/flink/springbootflinkstudy/workcount/WordCountStreamDemo.class</include>
+                                <include>com/flink/springbootflinkstudy/workcount/WordCountStreamDemo*.class</include>
+                                <include>com/flink/springbootflinkstudy/workcount/util/WorkCountData.class</include>
+                                <include>com/flink/springbootflinkstudy/workcount/util/CLI.class</include>
                             </includes>
                         </configuration>
                     </execution>

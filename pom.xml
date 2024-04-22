@@ -8,31 +8,30 @@
         <version>2.5.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.geespace.flink</groupId>
+    <groupId>com.aj.flink</groupId>
     <artifactId>springboot-flink-study</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>springboot-flink-study</name>
     <description>springboot-flink-study</description>
+
     <modules>
         <module>flink-study-bootstrap</module>
         <module>flink-study-streaming</module>
     </modules>
+
     <properties>
         <java.version>11</java.version>
         <scala.version>2.12</scala.version>
         <flink.version>1.18.1</flink.version>
     </properties>
+
     <dependencies>
-
-
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
-
     </dependencies>
 
     <build>

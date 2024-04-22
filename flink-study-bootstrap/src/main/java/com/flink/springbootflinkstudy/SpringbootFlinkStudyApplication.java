@@ -1,4 +1,4 @@
-package com.geespace.flink.springbootflinkstudy;
+package com.flink.springbootflinkstudy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

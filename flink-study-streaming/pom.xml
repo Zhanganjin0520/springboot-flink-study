@@ -74,7 +74,6 @@
                         </goals>
                         <configuration>
                             <classifier>WordCountStreamDemoDebug</classifier>
-
                             <archive>
                                 <manifestEntries>
                                     <program-class>com.flink.springbootflinkstudy.debug.WordCountStreamDemoDebug</program-class>
@@ -97,18 +96,37 @@
                         </goals>
                         <configuration>
                             <classifier>WordCountStreamDemo</classifier>
-
                             <archive>
                                 <manifestEntries>
                                     <program-class>com.flink.springbootflinkstudy.workcount.WordCountStreamDemo</program-class>
                                 </manifestEntries>
                             </archive>
-
                             <includes>
                                 <include>com/flink/springbootflinkstudy/workcount/WordCountStreamDemo.class</include>
                                 <include>com/flink/springbootflinkstudy/workcount/WordCountStreamDemo*.class</include>
                                 <include>com/flink/springbootflinkstudy/workcount/util/WorkCountData.class</include>
                                 <include>com/flink/springbootflinkstudy/workcount/util/CLI.class</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>StockPriceDemo</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>StockPriceDemo</classifier>
+                            <archive>
+                                <manifestEntries>
+                                    <program-class>com.flink.springbootflinkstudy.stock.StockPriceDemo</program-class>
+                                </manifestEntries>
+                            </archive>
+                            <includes>
+                                <include>com/flink/springbootflinkstudy/stock/StockPriceDemo.class</include>
+                                <include>com/flink/springbootflinkstudy/stock/StockPrice.class</include>
+                                <include>com/flink/springbootflinkstudy/stock/StockSource.class</include>
                             </includes>
                         </configuration>
                     </execution>

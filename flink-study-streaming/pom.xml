@@ -39,6 +39,24 @@
             <artifactId>flink-connector-datagen</artifactId>
             <version>${flink.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-csv</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.16.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-shaded-jackson -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-shaded-jackson</artifactId>
+            <version>2.15.3-18.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -76,7 +94,8 @@
                             <classifier>WordCountStreamDemoDebug</classifier>
                             <archive>
                                 <manifestEntries>
-                                    <program-class>com.flink.springbootflinkstudy.debug.WordCountStreamDemoDebug</program-class>
+                                    <program-class>com.flink.springbootflinkstudy.debug.WordCountStreamDemoDebug
+                                    </program-class>
                                 </manifestEntries>
                             </archive>
 
@@ -98,7 +117,8 @@
                             <classifier>WordCountStreamDemo</classifier>
                             <archive>
                                 <manifestEntries>
-                                    <program-class>com.flink.springbootflinkstudy.workcount.WordCountStreamDemo</program-class>
+                                    <program-class>com.flink.springbootflinkstudy.workcount.WordCountStreamDemo
+                                    </program-class>
                                 </manifestEntries>
                             </archive>
                             <includes>
@@ -126,7 +146,6 @@
                             <includes>
                                 <include>com/flink/springbootflinkstudy/stock/StockPriceDemo.class</include>
                                 <include>com/flink/springbootflinkstudy/stock/StockPrice.class</include>
-                                <include>com/flink/springbootflinkstudy/stock/StockSource.class</include>
                             </includes>
                         </configuration>
                     </execution>

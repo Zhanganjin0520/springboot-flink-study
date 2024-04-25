@@ -1,5 +1,11 @@
 package com.flink.springbootflinkstudy.stock;
 
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 /**
  * POJO StockPrice
  * symbol      股票代号
@@ -7,34 +13,15 @@ package com.flink.springbootflinkstudy.stock;
  * price       价格
  * volume      交易量
  * mediaStatus 媒体对该股票的评价状态
- * */
-
+ */
+@Getter
+@Setter
+@ToString
+@JsonPropertyOrder({"symbol,ts,volume,price,mediaStatus"})
 public class StockPrice {
     public String symbol;
-    public double price;
-    public long ts;
-    public int volume;
+    public String ts;
+    public String volume;
+    public String price;
     public String mediaStatus;
-
-    public StockPrice() {}
-
-    public StockPrice(String symbol, double price, long ts, int volume, String mediaStatus){
-        this.symbol = symbol;
-        this.price = price;
-        this.ts = ts;
-        this.volume = volume;
-        this.mediaStatus = mediaStatus;
-    }
-
-    public static StockPrice of(String symbol, double price, long ts, int volume) {
-        return new StockPrice(symbol, price, ts, volume, "");
-    }
-
-    @Override
-    public String toString() {
-        return "(" + this.symbol + "," +
-                this.price + "," + this.ts +
-                "," + this.volume + "," +
-                this.mediaStatus + ")";
-    }
 }

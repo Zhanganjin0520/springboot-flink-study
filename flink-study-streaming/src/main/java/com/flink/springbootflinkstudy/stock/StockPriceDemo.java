@@ -25,6 +25,7 @@ public class StockPriceDemo {
 
         // get Execution Environment
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        //Watermark 窗口
         env.getConfig().setAutoWatermarkInterval(200);
 
         //读取文件

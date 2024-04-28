@@ -2,7 +2,7 @@ package com.flink.springbootflinkstudy.debug;
 
 import java.time.Duration;
 
-import com.flink.springbootflinkstudy.workcount.util.WorkCountData;
+import com.flink.springbootflinkstudy.workcount.util.WordCountData;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.serialization.SimpleStringEncoder;
@@ -25,7 +25,7 @@ public class WordCountStreamDemoDebug {
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.createRemoteEnvironment("127.0.0.1", 8081, "flink-study-streaming/target/flink-study-streaming-0.0.1-SNAPSHOT-WordCountStreamDemoDebug.jar");
 
         // 创建输入流
-        DataStream<String> text = env.fromElements(WorkCountData.WORDS).name("in-memory-input");
+        DataStream<String> text = env.fromElements(WordCountData.WORDS).name("in-memory-input");
 
         // transform
         DataStream<Tuple2<String, Integer>> wordCounts = text

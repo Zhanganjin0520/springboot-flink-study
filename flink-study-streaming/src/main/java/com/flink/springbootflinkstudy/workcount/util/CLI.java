@@ -28,7 +28,7 @@ import java.time.Duration;
 import java.util.*;
 
 /**
- * A simple CLI parser for the {@link WorkCountData}
+ * A simple CLI parser for the {@link WordCountData}
  * example application.
  */
 public class CLI extends ExecutionConfig.GlobalJobParameters {

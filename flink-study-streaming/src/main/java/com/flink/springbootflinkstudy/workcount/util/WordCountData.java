@@ -3,7 +3,7 @@ package com.flink.springbootflinkstudy.workcount.util;
 /**
  * WordCount Input
  */
-public class WorkCountData {
+public class WordCountData {
     public static final String[] WORDS =
             new String[]{
                     "To be, or not to be,--that is the question:--",

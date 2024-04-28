@@ -44,13 +44,11 @@
             <artifactId>flink-csv</artifactId>
             <version>${flink.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
             <version>2.16.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-shaded-jackson -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-shaded-jackson</artifactId>
@@ -105,8 +103,6 @@
                             </includes>
                         </configuration>
                     </execution>
-
-                    <!-- WordCountStreamDemo -->
                     <execution>
                         <id>WordCountStreamDemo</id>
                         <phase>package</phase>
@@ -129,7 +125,6 @@
                             </includes>
                         </configuration>
                     </execution>
-
                     <execution>
                         <id>StockPriceDemo</id>
                         <phase>package</phase>
@@ -146,6 +141,28 @@
                             <includes>
                                 <include>com/flink/springbootflinkstudy/stock/StockPriceDemo.class</include>
                                 <include>com/flink/springbootflinkstudy/stock/StockPrice.class</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>WindowWordCount</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>WindowWordCount</classifier>
+                            <archive>
+                                <manifestEntries>
+                                    <program-class>com.flink.springbootflinkstudy.window.WindowWordCount
+                                    </program-class>
+                                </manifestEntries>
+                            </archive>
+                            <includes>
+                                <include>com/flink/springbootflinkstudy/window/WindowWordCount.class</include>
+                                <include>com/flink/springbootflinkstudy/workcount/WordCountStreamDemo*.class</include>
+                                <include>com/flink/springbootflinkstudy/workcount/util/WordCountData.class</include>
+                                <include>com/flink/springbootflinkstudy/workcount/util/CLI.class</include>
                             </includes>
                         </configuration>
                     </execution>

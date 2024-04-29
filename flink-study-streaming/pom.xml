@@ -38,6 +38,7 @@
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-datagen</artifactId>
             <version>${flink.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
@@ -73,6 +74,8 @@
                         <configuration>
                             <compilerArgument>-Xlint:deprecation</compilerArgument>
                             <failOnWarning>true</failOnWarning>
+                            <source>${java.version}</source>
+                            <target>${java.version}</target>
                         </configuration>
                     </execution>
                 </executions>
@@ -163,6 +166,27 @@
                                 <include>com/flink/springbootflinkstudy/workcount/WordCountStreamDemo*.class</include>
                                 <include>com/flink/springbootflinkstudy/workcount/util/WordCountData.class</include>
                                 <include>com/flink/springbootflinkstudy/workcount/util/CLI.class</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>WindowJoin</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>WindowJoin</classifier>
+
+                            <archive>
+                                <manifestEntries>
+                                    <program-class>com.flink.springbootflinkstudy.join.WindowJoin</program-class>
+                                </manifestEntries>
+                            </archive>
+
+                            <includes>
+                                <include>com/flink/springbootflinkstudy/join/*.class</include>
+                                <include>com/flink/springbootflinkstudy/utils/ThrottledIterator.class</include>
                             </includes>
                         </configuration>
                     </execution>

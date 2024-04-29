@@ -18,6 +18,8 @@
 
 package com.flink.springbootflinkstudy.join;
 
+import java.util.Random;
+
 import org.apache.flink.api.common.typeinfo.TypeHint;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.api.connector.source.util.ratelimit.RateLimiterStrategy;
@@ -25,9 +27,10 @@ import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.connector.datagen.source.DataGeneratorSource;
 import org.apache.flink.connector.datagen.source.GeneratorFunction;
 
-import java.util.Random;
 
-/** Sample data for the {@link WindowJoin} example. */
+/**
+ * Sample data for the {@link WindowJoin} example.
+ */
 @SuppressWarnings("serial")
 public class WindowJoinSampleData {
 
@@ -35,13 +38,17 @@ public class WindowJoinSampleData {
     static final int GRADE_COUNT = 5;
     static final int SALARY_MAX = 10000;
 
-    /** Continuously generates (name, grade). */
+    /**
+     * Continuously generates (name, grade).
+     */
     public static DataGeneratorSource<Tuple2<String, Integer>> getGradeGeneratorSource(
             double elementsPerSecond) {
         return getTupleGeneratorSource(GRADE_COUNT, elementsPerSecond);
     }
 
-    /** Continuously generates (name, salary). */
+    /**
+     * Continuously generates (name, salary).
+     */
     public static DataGeneratorSource<Tuple2<String, Integer>> getSalaryGeneratorSource(
             double elementsPerSecond) {
         return getTupleGeneratorSource(SALARY_MAX, elementsPerSecond);
@@ -50,13 +57,16 @@ public class WindowJoinSampleData {
     private static DataGeneratorSource<Tuple2<String, Integer>> getTupleGeneratorSource(
             int maxValue, double elementsPerSecond) {
         final Random rnd = new Random();
-        final GeneratorFunction<Long, Tuple2<String, Integer>> generatorFunction =
-                index -> new Tuple2<>(NAMES[rnd.nextInt(NAMES.length)], rnd.nextInt(maxValue) + 1);
+        final GeneratorFunction<Long, Tuple2<String, Integer>> generatorFunction
+                = value -> new Tuple2<>(NAMES[rnd.nextInt(NAMES.length)], rnd.nextInt(maxValue) + 1);
 
         return new DataGeneratorSource<>(
                 generatorFunction,
                 Long.MAX_VALUE,
                 RateLimiterStrategy.perSecond(elementsPerSecond),
-                TypeInformation.of(new TypeHint<Tuple2<String, Integer>>() {}));
+                TypeInformation.of(new TypeHint<Tuple2<String, Integer>>() {
+                }));
     }
+
+
 }
